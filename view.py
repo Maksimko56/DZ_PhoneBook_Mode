@@ -15,13 +15,14 @@ def show_main_menu() -> int:
             print(text.choice_main_menu_error)
 
 def show_contacts(max_len:dict[int,int,int], phone_book: dict[int, [str]], error_message: str):
+    CORRECT_WHITESPACE = 11
     if phone_book:
-        print("\n" + "&" * sum(max_len,11))
+        print("\n" + "&" * sum(max_len,CORRECT_WHITESPACE))
         print(f'{"id":>3}. {"Имя":<{max_len[0]}} | {"Номер":<{max_len[1]}} | {"Коментарий":<{max_len[2]}}')
-        print("_" * sum(max_len,11))
+        print("_" * sum(max_len,CORRECT_WHITESPACE))
         for u_id, contact in phone_book.items():
             print(f'{u_id:>3}. {contact[0]:<{max_len[0]}} | {contact[1]:<{max_len[1]}} | {contact[2]:<{max_len[2]}}')
-        print("&" * sum(max_len,11), "\n")
+        print("&" * sum(max_len,CORRECT_WHITESPACE), "\n")
     else:
         show_message(error_message)
 
